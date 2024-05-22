@@ -2,33 +2,27 @@
 <html>
     <head>
         <script>
-            // ページ読み込み時に実行されるスクリ
-            window.onload = function() {
-                var userInput;
-                
-                // 入力が「1234」になるまでプロンプトを表示する
-                while (userInput !== "123123") {
-                    userInput = prompt("正しいパスコードを入力してください:");
-                }
+            // Helper function to sleep for a specified time using Promises
+            function sleep(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+            }
 
-                // 正しい入力が得られたらメッセージを表示
-                if (userInput === "123123") {
-                    alert("正しいパスコードが入力されました。");
+            // Function to prompt the user for a passcode and redirect
+            async function authenticate() {
+                await sleep(1000); // 1-second delay
+                let userInput = prompt("正しいパスコードを入力してください:");
+                await sleep(1000); // Another 1-second delay
+                if (userInput) {
+                    location.href = "https://japansystemstudio.github.io/password_is_" + userInput + "/";
                 }
+            }
+
+            // Execute on page load
+            window.onload = function() {
+                authenticate();
             }
         </script>
     </head>
     <body>
-        <!-- このHTMLはページの内容が必要ない場合は空で良い -->
-        <h1>
-            a
-       </h1>
-       <a>
-        ihuki
-       </a>
-       <a href="https://scratchstats.com/ihuki">deta</a>
-       <a>join: 2024年3月24日, 10:26:33</a>
-       <a>: 18. 17. 261</a>
-       <a>: 213. 206. 3,131</a>
     </body>
 </html>
